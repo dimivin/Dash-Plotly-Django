@@ -1,0 +1,4 @@
+Things to keep in mind as well as to note down:
+
+1. Change database user for deployment
+2. Deal with static for production more efficiently. Not storing the static files in the local static folder and repository
