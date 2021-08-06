@@ -14,10 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+
+from wagtail.core import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('django-admin/', admin.site.urls),
+    path('admin/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    # path('admin/', admin.site.urls), MAKING SPACE FOR THE WAGTAIL ADMIN
     path('', include('home.urls')),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
+    # re_path(r'', include('myapp.urls')), THIS IS Optional URL for including your own vanilla Django urls/views
+    # For anything not caught by a more specific rule above, hand over to
+    # Wagtail's serving mechanism
+    re_path(r'', include(wagtail_urls)),
 ]

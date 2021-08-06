@@ -30,13 +30,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin', # Todo may have to remove this one
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # MY APP
+    # MY HOME-APP
     'home.apps.HomeConfig',
     # PLOTLY DASH DJANGO
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
@@ -44,6 +44,24 @@ INSTALLED_APPS = [
     'channels',
     # CHANNELS_REDIS
     'channels_redis'
+    # MY WAGTAIL APP
+    'wagtailApp',
+    # WAGTAIL APPS
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+    # THIRD PARTY WAGTAIL RELATED APPS
+    'taggit',
+    'modelcluster',
+
 ]
 
 MIDDLEWARE = [
@@ -54,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # WAGTAIL
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'plotlyDashDjango.urls'
