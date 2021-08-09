@@ -27,11 +27,11 @@ SECRET_KEY = 'django-insecure-coj1teg2#8_mgrrqjd7p@9=xw%ni5n0v)+0%x@^sqouusq=4((
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
-
 INSTALLED_APPS = [
+    # CHANELS
+    'channels',
+    # CHANNELS_REDIS
+    'channels_redis'
     'django.contrib.admin', # Todo may have to remove this one
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,10 +42,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     # PLOTLY DASH DJANGO
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-    # CHANELS
-    'channels',
-    # CHANNELS_REDIS
-    'channels_redis'
     # MY WAGTAIL APP
     'wagtailApp',
     # WAGTAIL APPS
@@ -64,6 +60,10 @@ INSTALLED_APPS = [
     'taggit',
     'modelcluster',
 ]
+
+
+# Application definition
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
