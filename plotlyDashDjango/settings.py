@@ -30,6 +30,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # WAGTAIL APPS
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+    # THIRD PARTY WAGTAIL APPS
+    'modelcluster',
+    'taggit',
+
+    # DEFAULT APPS
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +64,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # WAGTAIL
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -160,12 +180,14 @@ PLOTLY_COMPONENTS = [
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+WAGTAIL_SITE_NAME = 'My COOOOOL Site'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATICFILES_LOCATION = 'static'
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'plotlyDashDjango/static')
 ]
@@ -174,3 +196,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 #
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
