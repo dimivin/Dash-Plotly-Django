@@ -1,0 +1,2 @@
+python -m django --version
+python -m pip list

@@ -22,16 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-coj1teg2#8_mgrrqjd7p@9=xw%ni5n0v)+0%x@^sqouusq=4(('
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # CHANELS
     'channels',
     # CHANNELS_REDIS
     'channels_redis'
+    # WAGTAIL APPS
+    'wagtail.contrib.redirects',
+    # DEFAULT APPS
     'django.contrib.admin', # Todo may have to remove this one
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +44,6 @@ INSTALLED_APPS = [
     'wagtailApp',
     # WAGTAIL APPS
     'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -61,11 +58,19 @@ INSTALLED_APPS = [
     'modelcluster',
 ]
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
 
 MIDDLEWARE = [
+    # WAGTAIL
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    # DEFAULT
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,8 +78,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # WAGTAIL
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'plotlyDashDjango.urls'
@@ -186,13 +189,11 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 STATICFILES_LOCATION = 'static'
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'plotlyDashDjango/static')
 ]
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  Todo may need those for wagtail
-# MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -245,7 +246,10 @@ LOGGING = {
 
 # This is the human-readable name of your Wagtail install
 # which welcomes users upon login to the Wagtail admin.
-WAGTAIL_SITE_NAME = 'My Project'
+WAGTAIL_SITE_NAME = "Dimi's Amazing Project"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Replace the search backend
 #WAGTAILSEARCH_BACKENDS = {
