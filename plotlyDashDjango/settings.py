@@ -180,7 +180,7 @@ PLOTLY_COMPONENTS = [
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-WAGTAIL_SITE_NAME = 'My COOOOOL Site'
+WAGTAIL_SITE_NAME = 'Vinter API Plotly Dashboard -'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
