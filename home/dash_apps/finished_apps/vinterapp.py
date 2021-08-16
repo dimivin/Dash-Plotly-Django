@@ -16,7 +16,7 @@ vinter_key = "Fzwtx07C.vkwN5zYY8UDE7hdgX97TLfhoiRWziFhD"
 
 headers = {"Authorization": vinter_key}
 
-app = DjangoDash("SimpleExample")
+app = DjangoDash("VinterApp")
 
 
 app.layout = html.Div([
@@ -40,17 +40,16 @@ def update_graph(n):
 
     r= requests.get(url, headers=headers, params=params)
 
-    d = r.json()
-    data = d
+    data = r.json()
 
-    df = pd.DataFrame(d['data'])
+    df = pd.DataFrame(data['data'])
 
     line_chart = px.line(
                     data_frame=df,
                     x='datetime',
                     y='value',
                     # color='indicator',
-                    title="BTC"
+                    title="BTC-USD"
                     # title="Stock: {}".format(ttm_meta_data['2. Symbol'])
                  )
     return (line_chart)
