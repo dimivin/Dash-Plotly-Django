@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  myapp:
+    build:
+      context: .
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./myapp:/myapp
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:3003"

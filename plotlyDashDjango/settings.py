@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-coj1teg2#8_mgrrqjd7p@9=xw%ni5n0v)+0%x@^sqouusq=4((
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '172.28.1.4', '172.28.0.0']
 
 
 # Application definition
@@ -96,24 +96,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'plotlyDashDjango.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'testingdb',
         'USER': 'postgres',
         'PASSWORD': '12345678',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
