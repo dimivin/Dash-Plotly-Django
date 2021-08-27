@@ -1,15 +1,30 @@
 FROM postgres:latest
 
+RUN apt update
+RUN apt -y upgrade
+
+
 # install Python 3
 RUN apt-get update && apt-get install -y python3 python3-pip
-RUN apt-get -y install python3.7-dev
-RUN apt-get install postgresql-server-dev-10 gcc python3-dev musl-dev
+
+RUN apt-get install libpq-dev
+RUN apt-get install postgresql
+
+RUN apt-get install gcc
+RUN apt-get install python3-dev
+
+#RUN apt-get install musl-dev1.1.24 Todo this was not installed
+
+COPY . .
+
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 # install psycopg2 library with PIP
-RUN pip3 install psycopg2 #may need psycopg2-binary
+#RUN pip3 install psycopg2
 
 # install the Django library
-RUN pip3 install Django
+#RUN pip3 install Django
 
 # add the 'postgres' admin role
 USER postgres

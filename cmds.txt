@@ -1,3 +1,11 @@
 
-Dummy admin: admin
-password: 0000
+===---<<<Docker Stuff>>>---+++
+
+docker-compose up --build
+
+docker ps
+
+docker exec -it ### /bin/bash
+
+python3 manage.py runserver 0.0.0.0:8000
+

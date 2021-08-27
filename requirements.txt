@@ -67,7 +67,8 @@ pickleshare==0.7.5
 Pillow==8.3.1
 plotly==5.1.0
 postgres==3.0.0
-primary==0.0.1.dev1
+#primary==0.0.1.dev1 original automated version
+#primary
 prompt-toolkit==3.0.19
 psycopg2-binary==2.9.1
 psycopg2-pool==1.1

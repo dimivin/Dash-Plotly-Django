@@ -3,7 +3,6 @@ version: "3.2"
 services:
   # Container name
   postgres-cont:
-
     build:
       context: ${PWD}
 
@@ -15,7 +14,7 @@ services:
     # Bind mount volumes
     volumes:
       - $PWD/pg-data/:/var/lib/postgresql/data
-      - $PWD/plotlyDashDjango/:/usr/src/plotlyDashDjango/
+      - $PWD/:/usr/src/plotlyDashDjango/
 
     # configure Postgres environment variables
     environment:
